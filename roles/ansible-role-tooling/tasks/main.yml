@@ -1,0 +1,19 @@
+---
+# tasks file for ansible-role-tooling
+
+# - name: Create a directory if it does not exist
+#   file:
+#     path: /var/www/html/index.html
+#     state: absent
+#     mode: '0755'
+
+- name: Git checkout
+  git:
+    repo: 'https://github.com/darey-devops/tooling.git'
+    dest: /var/www/html/tooling
+    version: master
+
+- name: disable default Apache site 
+  shell: a2dissite 000-default.conf
+  become: true 
+  notify: restart apache

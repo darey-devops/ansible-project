@@ -1,0 +1,9 @@
+[webservers]
+ec2-3-127-135-145.eu-central-1.compute.amazonaws.com
+
+[db]
+ec2-3-122-95-225.eu-central-1.compute.amazonaws.com
+
+[ci]
+ec2-54-93-207-90.eu-central-1.compute.amazonaws.com
+

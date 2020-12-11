@@ -1,0 +1,27 @@
+---
+apache_service: apache2
+apache_daemon: apache2
+apache_daemon_path: /usr/sbin/
+apache_server_root: /etc/apache2
+apache_conf_path: /etc/apache2
+
+__apache_packages:
+  - apache2
+  - apache2-utils
+  - php 
+  - php-cli 
+  - php-fpm 
+  - php-json 
+  - php-common 
+  - php-mysql 
+  - php-zip 
+  - php-gd 
+  - php-mbstring 
+  - php-curl 
+  - php-xml
+  - php-pear 
+  - php-bcmath 
+
+apache_ports_configuration_items:
+  - regexp: "^Listen "
+    line: "Listen {{ apache_listen_port }}"

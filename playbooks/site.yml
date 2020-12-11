@@ -1,0 +1,15 @@
+---
+- name: Include dynamic-playbooks 
+  hosts: all
+  tasks:
+    - include: ../dynamic-assignments/env-vars.yml
+  tags:
+    - always
+
+- import_playbook: ../static-assignments/common.yml 
+- import_playbook: ../static-assignments/db.yml 
+- import_playbook: ../static-assignments/ci.yml
+- import_playbook: ../static-assignments/artifact_repository.yml  
+- import_playbook: ../static-assignments/webserver.yml 
+
+

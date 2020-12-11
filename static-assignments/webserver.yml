@@ -1,0 +1,8 @@
+---
+- hosts: webservers
+  become: true
+  roles:
+    - ansible-role-apache
+    - ansible-role-tooling
+  tags:
+    - web

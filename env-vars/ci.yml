@@ -1,0 +1,23 @@
+---
+env: "dev"
+
+artifactory_flavor: oss
+artifactory_db_host: "ec2-3-122-95-225.eu-central-1.compute.amazonaws.com"
+artifactory_db_name: artifactory 
+artifactory_db_user: artifactory
+artifactory_db_pass: "TNSudjnsd^Nilsid"
+artifactory_create_db: false
+
+# Databases.
+mysql_databases: 
+  - name: artifactory
+    collation: utf8_general_ci
+    encoding: utf8
+    replicate: 1
+
+# Users.
+mysql_users: 
+  - name: artifactory
+    host: "ec2-3-122-241-139.eu-central-1.compute.amazonaws.com"
+    password: "TNSudjnsd^Nilsid"
+    priv: "*.*:USAGE"
