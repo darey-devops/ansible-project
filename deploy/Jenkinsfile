@@ -27,6 +27,7 @@ pipeline {
           sh 'echo "Package Stage"'
         }
       }
+    }
     
 
     stage('Deploy') {
@@ -35,6 +36,7 @@ pipeline {
           sh 'echo "Deploy Stage"'
         }
       }
+    }
     
 
     stage('Clean Up') {
