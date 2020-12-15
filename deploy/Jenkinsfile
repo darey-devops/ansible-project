@@ -19,16 +19,18 @@ pipeline {
           withEnv(['ANSIBLE_CONFIG=/var/lib/jenkins/workspace/ansible-project_main/deploy/ansible.cfg']) {
            sh 'export ANSIBLE_CONFIG=${ANSIBLE_CONFIG}'
           sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
+         ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
+       
         }
+        
       }
     }
                
-    stage('Run Ansible') {
-      steps {
-
-              ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
-      }
-    }
+    // stage('Run Ansible') {
+    //   steps {
+    //      ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
+    //   }
+    // }
     
 
     stage('Deploy') {
