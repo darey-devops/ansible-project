@@ -2,7 +2,7 @@ pipeline {
     agent any
 
  environment {
-      DEFAULT_ROLES_PATH="$WORKSPACE/roles"
+      ANSIBLE_CONFIG="${WORKSPACE}/playbooks/ansible.cfg
     }
 
   stages {
@@ -16,7 +16,7 @@ pipeline {
     stage('Run Ansible') {
       steps {
               script{
-                sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
+               sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
               }
               ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
       }
