@@ -13,10 +13,11 @@ pipeline {
     }
 
 
+
     stage('Prepare Ansible For Execution') {
       steps {
-        script {
-          sh 'export ANSIBLE_CONFIG=${env.JENKINS_ANSIBLE_CFG_FILE}'
+          withEnv(['ANSIBLE_CONFIG="${WORKSPACE}/playbooks/ansible.cfg']) {
+           sh 'export ANSIBLE_CONFIG=${env.JENKINS_ANSIBLE_CFG_FILE}'
           sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
         }
       }
