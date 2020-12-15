@@ -16,14 +16,14 @@ pipeline {
 
     stage('Prepare Ansible For Execution') {
       steps {
-          withEnv(['ANSIBLE_CONFIG="${WORKSPACE}"']) {
+          
           sh 'echo ${WORKSPACE}'
           sh 'export ANSIBLE_CONFIG=${WORKSPACE}/deploy/ansible.cfg'
           sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
           sh 'env | grep ANSIBLE'
           echo "The BUILD NUMBER IS ${env.BUILD_NUMBER}"
           echo "The ANSIBLE CONFIG PATH IS ${env.ANSIBLE_CONFIG}"
-        }
+        
       }
     }
                
