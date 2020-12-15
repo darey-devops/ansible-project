@@ -2,7 +2,7 @@ pipeline {
     agent any
 
  environment {
-      DEFAULT_ROLES_PATH=$WORKSPACE/roles
+      DEFAULT_ROLES_PATH="$WORKSPACE/roles"
     }
 
   stages {
