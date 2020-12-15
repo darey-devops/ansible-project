@@ -3,20 +3,16 @@ pipeline {
 
 
   stages {
-    stage('Build') {
+    stage('Checkout SCM') {
       steps {
-        script {
-          sh 'echo "Building Stage"'
-        }
+            git 'https://github.com/darey-devops/ansible-project.git'
       }
     }
 
 
-    stage('Test') {
+    stage('Run Ansible') {
       steps {
-        script {
-          sh 'echo "Testing Stage"'
-        }
+              ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
       }
     }
 

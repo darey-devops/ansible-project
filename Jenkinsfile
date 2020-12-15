@@ -12,6 +12,7 @@ pipeline {
 //       JENKINS_KUBE_CONFIG_FILE="~/.kube/config"
 //       JENKINS_ANSIBLE_CFG_FILE="${WORKSPACE}/playbooks/ansible.cfg"
 //       ANSIBLE_FORCE_COLOR="true"
+DEFAULT_PRIVATE_KEY_FILE
 //     }
 
 //     stages {
