@@ -10,17 +10,18 @@ pipeline {
     }
 
 
-    stage('Run Ansible') {
-      steps {
-              ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
-      }
-    }
+    // stage('Run Ansible') {
+    //   steps {
+    //           ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
+    //   }
+    // }
 
 
     stage('Package') {
       steps {
         script {
           sh 'echo "Package Stage"'
+          sh 'echo $WORKSPACE'
         }
       }
     }
