@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
- environment {
-      JENKINS_ANSIBLE_CFG_FILE="${WORKSPACE}/playbooks/ansible.cfg"
-    }
+//  environment {
+//       JENKINS_ANSIBLE_CFG_FILE="${WORKSPACE}/playbooks/ansible.cfg"
+//     }
 
   stages {
     stage('Checkout SCM') {
@@ -16,7 +16,7 @@ pipeline {
 
     stage('Prepare Ansible For Execution') {
       steps {
-          withEnv(['ANSIBLE_CONFIG=/var/lib/jenkins/workspace/ansible-project_main/deploy/ansible.cfg']) {
+          withEnv(['ANSIBLE_CONFIG={WORKSPACE}/ansible.cfg']) {
            sh 'export ANSIBLE_CONFIG=${ANSIBLE_CONFIG}'
           sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
           sh 'env | grep ansible'
