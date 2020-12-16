@@ -1,8 +1,0 @@
----
-- hosts: artifact_repository
-  roles:
-    - java
-    - ansible-role-artifactory
-  become: true
-  tags: 
-    - artifactory
