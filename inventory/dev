@@ -5,4 +5,4 @@
 18.194.38.231
 
 [db]
-18.197.198.129 ansible_user=ec2-user
+18.192.42.151 ansible_user=ec2-user
