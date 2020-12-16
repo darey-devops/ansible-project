@@ -4,5 +4,10 @@
 [todo]
 18.194.38.231
 
+[db:vars]
+ansible_user=ec2-user
+ansible_python_interpreter=/usr/bin/python
+
+
 [db]
-18.192.42.151 ansible_user=ec2-user
+18.192.42.151 
