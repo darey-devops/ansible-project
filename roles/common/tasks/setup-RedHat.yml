@@ -1,5 +1,5 @@
 ---
 - name: Ensure MySQL packages are installed.
-  dnf:
+  yum:
     name: "{{ yum_common_packages }}"
     state: present
