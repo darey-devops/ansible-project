@@ -1,9 +1,4 @@
 ---
-
-- name: Debug Pyton In terpreter
-  debug:
-    msg: "Python Interpreter {{ ansible_python_interpreter }}"
-
 - name: Ensure MySQL Python libraries are installed.
   pacman: "name=mysql-python state=present"
 
