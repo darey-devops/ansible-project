@@ -9,6 +9,7 @@ artifactory_db_pass: "TNSudjnsd^Nilsid"
 artifactory_create_db: false
 
 # Databases.
+mysql_python_package_debian: python3-mysqld
 mysql_databases: 
   - name: artifactory
     collation: utf8_general_ci
