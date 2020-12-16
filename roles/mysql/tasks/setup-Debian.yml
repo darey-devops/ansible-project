@@ -1,4 +1,17 @@
 ---
+
+# tasks file for mysql
+- name: Install the Python MySQLB module
+  pip: name=MySQL-python
+
+- name: Install the Python MySQLB module
+  pip: 
+    name: PyMySQL
+
+- name: Install the configparser module
+  pip: 
+    name: configparser
+    
 - name: Check if MySQL is already installed.
   stat: path=/etc/init.d/mysql
   register: mysql_installed
