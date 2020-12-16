@@ -15,7 +15,6 @@
         - git
         - tree
         - python3-pip
-        - python-mysqldb
       state: installed
 
   - name: Set timezone to Europe/London

@@ -5,6 +5,10 @@
   changed_when: false
   check_mode: false
 
+# tasks file for mysql
+- name: Install the Python MySQLB module
+  pip: name=MySQL-python
+
 - name: Install the Python MySQLB module
   pip: 
     name: PyMySQL
