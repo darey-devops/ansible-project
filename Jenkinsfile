@@ -7,13 +7,13 @@ pipeline {
       string(name: 'ansible_tag', defaultValue: '', description: 'Ansible tag to only run specific tasks')
     }
 
-//  environment {
-//       JENKINS_SSH_PRIVKEY="~/.ssh/jenkins.pem"
-//       JENKINS_KUBE_CONFIG_FILE="~/.kube/config"
-//       JENKINS_ANSIBLE_CFG_FILE="${WORKSPACE}/playbooks/ansible.cfg"
-//       ANSIBLE_FORCE_COLOR="true"
-DEFAULT_PRIVATE_KEY_FILE
-//     }
+ environment {
+      // JENKINS_SSH_PRIVKEY="~/.ssh/jenkins.pem"
+      JENKINS_KUBE_CONFIG_FILE="~/.kube/config"
+      JENKINS_ANSIBLE_CFG_FILE="${WORKSPACE}/playbooks/ansible.cfg"
+      ANSIBLE_FORCE_COLOR="true"
+      DEFAULT_PRIVATE_KEY_FILE="~/.ssh/jenkins.pem"
+    }
 
 //     stages {
 
@@ -26,19 +26,19 @@ DEFAULT_PRIVATE_KEY_FILE
 //         }
 
 
-//     stage('Checkout')
-//         {
-//         steps {
-//         checkout([
-//             $class: 'GitSCM', 
-//             doGenerateSubmoduleConfigurations: false, 
-//             extensions: [],
-//             submoduleCfg: [], 
-//             branches: [[name: 'develop']],
-//             userRemoteConfigs: [[url: "https://gitlab.com/zooto.io/ansible.git",credentialsId:'GIT_CREDENTIALS']]
-//             ])
-//                 }
-//           }
+    stage('Checkout')
+        {
+        steps {
+        checkout([
+            $class: 'GitSCM', 
+            doGenerateSubmoduleConfigurations: false, 
+            extensions: [],
+            submoduleCfg: [], 
+            branches: [[name: 'develop']],
+            userRemoteConfigs: [[url: "https://gitlab.com/zooto.io/ansible.git",credentialsId:'GIT_CREDENTIALS']]
+            ])
+                }
+          }
 
 //         stage('Ansible playbook') {
 //           steps {
