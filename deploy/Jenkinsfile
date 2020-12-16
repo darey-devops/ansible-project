@@ -35,18 +35,14 @@ pipeline {
     stage('Run Ansible') {
       steps {
 
-            ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
+            ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: \${inventory_file}, playbook: 'playbooks/site.yml'
       }
     }
     
 
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploy Stage"'
-        }
-      }
-    }
+// stage ('Starting ART job') {
+//     build job: 'ansible-project', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: systemname]]
+// }
     
   }
 }
