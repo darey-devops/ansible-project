@@ -6,6 +6,15 @@ pipeline {
     }
 
   stages {
+
+     stage("Initial cleanup") {
+          steps {
+            dir("${WORKSPACE}") {
+              deleteDir()
+            }
+          }
+        }
+
     stage('Checkout SCM') {
       steps {
             git branch: 'main', url: 'https://github.com/darey-devops/ansible-project.git'
@@ -14,7 +23,6 @@ pipeline {
 
     stage('Prepare Ansible For Execution') {
       steps {
-          
           sh 'echo ${WORKSPACE}'
           sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles_path = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_main\\/roles /g\' deploy/ansible.cfg'
       }
