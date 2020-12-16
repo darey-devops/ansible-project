@@ -13,6 +13,10 @@
   pip: 
     name: PyMySQL
 
+- name: Install the configparser module
+  pip: 
+    name: configparser
+
 - name: Copy my.cnf global MySQL configuration.
   template:
     src: my.cnf.j2
