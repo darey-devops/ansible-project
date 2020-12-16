@@ -14,45 +14,35 @@ pipeline {
             }
           }
         }
-  }   
-}
   
-    // stage('Checkout SCM') {
-    //   steps {
-    //         git branch: 'release-0.0.1', url: 'https://github.com/darey-devops/ansible-project.git'
-    //   }
-    // }
+    stage('Checkout SCM') {
+      steps {
+            git branch: 'release-0.0.1', url: 'https://github.com/darey-devops/ansible-project.git'
+      }
+    }
 
-  //   stage('Prepare Ansible For Execution') {
-  //     steps {
-  //         sh 'echo ${WORKSPACE}'
-  //         sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles_path = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_release-0.0.1\\/roles /g\' deploy/ansible.cfg'
-  //     }
-  //   }
+    stage('Prepare Ansible For Execution') {
+      steps {
+          sh 'echo ${WORKSPACE}'
+          sh 'sed -i \'s/roles_path = \\/var\\/lib\\/jenkins\\/workspace/roles_path = \\/var\\/lib\\/jenkins\\/workspace\\/ansible-project_release-0.0.1\\/roles /g\' deploy/ansible.cfg'
+      }
+    }
                
-  //   stage('Run Ansible') {
-  //     steps {
+    stage('Run Ansible') {
+      steps {
 
-  //           ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
-  //     }
-  //   }
+            ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
+      }
+    }
     
 
-  //   stage('Deploy') {
-  //     steps {
-  //       script {
-  //         sh 'echo "Deploy Stage"'
-  //       }
-  //     }
-  //   }
+    stage('Deploy') {
+      steps {
+        script {
+          sh 'echo "Deploy Stage"'
+        }
+      }
+    }
     
-
-  //   stage('Clean Up') {
-  //     steps {
-  //       script {
-  //         sh 'echo "Clean Up Stage"'
-  //       }
-  //     }
-  //   }
-  // }
-// }
+  }
+}
