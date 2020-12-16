@@ -21,7 +21,7 @@ pipeline {
   
     stage('Checkout SCM') {
       steps {
-            git branch: 'release-0.0.1', url: 'https://github.com/darey-devops/ansible-project.git'
+            git branch: 'main', url: 'https://github.com/darey-devops/ansible-project.git'
       }
     }
 
