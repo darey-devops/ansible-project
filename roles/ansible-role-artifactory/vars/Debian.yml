@@ -2,4 +2,4 @@
 artifactory_system_reqs:
   - unzip
   - zip
-  - python-pip
+  - python3-pip
