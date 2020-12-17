@@ -6,7 +6,8 @@ pipeline {
     }
 
     parameters {
-      string(name: 'inventory_file', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
+      string(name: 'inventory_file', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration'),
+      string(name: 'ansible_tag', defaultValue: '',  description: 'This is the tag to decide what role or playbook to run')
     }
 
   stages {
@@ -35,7 +36,7 @@ pipeline {
     stage('Run Ansible') {
       steps {
 
-            ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: "inventory/${inventory_file}", playbook: 'playbooks/site.yml'
+            ansiblePlaybook become: true, colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'Ansible', tags: ${ansible_tag}, inventory: "inventory/${inventory_file}", playbook: 'playbooks/site.yml'
       }
     }
     
