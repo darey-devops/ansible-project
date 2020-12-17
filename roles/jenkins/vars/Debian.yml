@@ -14,7 +14,7 @@ jenkins_requirements:
   - net-tools
   - wget
   - lsof
-  - '{{ jenkins_python_pip_package }}'
+  # - '{{ jenkins_python_pip_package }}'
   - unzip
 
 jenkins_deb_repo_key: >-
