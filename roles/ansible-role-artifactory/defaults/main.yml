@@ -1,5 +1,6 @@
 ---
 # defaults file for artifactory-ansible-role
+ansible_python_interpreter: "/usr/bin/python"
 artifactory_flavor: pro
 artifactory_version: 5.2.1
 artifactory_user: artifactory

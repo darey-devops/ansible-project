@@ -4,8 +4,5 @@
 [sonarqube]
 3.127.215.238
 
-[artifact_repository:vars]
-ansible_python_interpreter=/usr/bin/python
-
 [artifact_repository]
 18.195.112.61
