@@ -1,9 +1,9 @@
 ---
-- hosts: jenkins
-  roles:
-    - java
-    - jenkins
-  become: true
+# - hosts: jenkins
+#   roles:
+#     - java
+#     - jenkins
+#   become: true
 
 - hosts: artifact_repository
   roles:
