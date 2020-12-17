@@ -6,7 +6,7 @@ pipeline {
     }
 
     parameters {
-      string(name: 'inventory_file', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration'),
+      string(name: 'inventory_file', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
       string(name: 'ansible_tag', defaultValue: '',  description: 'This is the tag to decide what role or playbook to run')
     }
 
